@@ -1,6 +1,7 @@
 package com.antarescraft.kloudy.hologuiapi.exampleplugin;
 
 import com.antarescraft.kloudy.hologuiapi.HoloGUIPlugin;
+import com.antarescraft.kloudy.hologuiapi.exampleplugin.events.CommandEvent;
 
 public class ExamplePlugin extends HoloGUIPlugin
 {
@@ -10,7 +11,9 @@ public class ExamplePlugin extends HoloGUIPlugin
 		saveDefaultConfig();
 		
 		getHoloGUIApi().hookHoloGUIPlugin(this);//hook the plugin into HoloGUIApi
-		loadGUIPages();//load the GUI Pages from the resources/yamls/ directory in the plugin .jar
+		loadGUIPages();//load the GUI Pages from cofig
+		
+		getCommand("example").setExecutor(new CommandEvent(this));
 	}
 	
 	@Override
