@@ -21,9 +21,9 @@ stopwatch:
     ###  Plugin Title Label  ###
     title:
       type: "label"
-      label-distance: 8
+      label-distance: 5
       text:
-        - "&&blHoloGUIApi Example Plugin"
+        - "&b&lHoloGUIApi Example Plugin"
       position:
         x: 0
         y: 0.8
@@ -31,7 +31,6 @@ stopwatch:
     ###  Time Label - Displays the current amount of time left on the stopwatch  ###
     time-label:
       type: "label"
-      label-distance: 6
       text:
         - "&l$model.time();" # Calls the 'time()' function in the StopWatchDataModel class which returns the amount of time left on the stopwatch
       position:

@@ -1,24 +1,20 @@
 package com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels;
 
-import java.time.Duration;
-
-import org.bukkit.Sound;
-import org.bukkit.entity.Player;
-
 import com.antarescraft.kloudy.hologuiapi.HoloGUIPlugin;
 import com.antarescraft.kloudy.hologuiapi.guicomponents.ButtonComponent;
 import com.antarescraft.kloudy.hologuiapi.guicomponents.GUIPage;
-import com.antarescraft.kloudy.hologuiapi.guicomponents.LabelComponent;
-import com.antarescraft.kloudy.hologuiapi.guicomponents.ValueScrollerComponent;
 import com.antarescraft.kloudy.hologuiapi.handlers.ClickHandler;
 import com.antarescraft.kloudy.hologuiapi.handlers.GUIPageLoadHandler;
-import com.antarescraft.kloudy.hologuiapi.handlers.ScrollHandler;
 import com.antarescraft.kloudy.hologuiapi.playerguicomponents.PlayerGUIPage;
 import com.antarescraft.kloudy.hologuiapi.playerguicomponents.PlayerGUIPageModel;
 import com.antarescraft.kloudy.hologuiapi.plugincore.time.TimeFormat;
-import com.antarescraft.kloudy.hologuiapi.scrollvalues.AbstractScrollValue;
-import com.antarescraft.kloudy.hologuiapi.scrollvalues.DurationScrollValue;
+
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.time.Duration;
+import java.util.Calendar;
 
 /**
  * StopwatchDataModel class
@@ -33,7 +29,7 @@ import org.bukkit.scheduler.BukkitRunnable;
  * If the method returns a value, then that value will be replaced in the string in the config file
  * This allows you to display dynamic data in your gui pages
  */
-@SuppressWarnings("ALL")
+
 public class StopwatchDataModel extends PlayerGUIPageModel
 {
 	private PlayerGUIPage playerGUIPage;
@@ -119,14 +115,18 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 
 		stopWatch = new BukkitRunnable()
 		{
+			private Calendar prevTime = Calendar.getInstance();
+			
 			@Override
 			public void run()
 			{
-				time = time.plusMillis(100);
+				Calendar now = Calendar.getInstance();
+				time = time.plusMillis(now.getTimeInMillis() - prevTime.getTimeInMillis());
+				prevTime = now;
 			}
 		};
 
-		stopWatch.runTaskTimer(plugin, 0, 2);
+		stopWatch.runTaskTimer(plugin, 0, 20);//update the time every second
 	}
 	
 	/**
@@ -150,8 +150,6 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	 */
 	public String time()
 	{
-		if(time.isZero()) return TimeFormat.getDurationFormatString(Duration.ZERO);
-
-		return TimeFormat.getDurationFormatString(time) + " " + ((time.toMillis() % time.getSeconds() + 1)/10);
+		return TimeFormat.getDurationFormatString(time);
 	}
 }
