@@ -10,13 +10,14 @@ public class ExamplePlugin extends HoloGUIPlugin
 	public void onEnable()
 	{
 		saveDefaultConfig();
-		
+
+		copyResourceConfigs(true);
 		getHoloGUIApi().hookHoloGUIPlugin(this);//hook the plugin into HoloGUIApi
 		loadGUIPages();//load the GUI Pages from cofig
-		
+
 		getCommand("stopwatch").setExecutor(new CommandEvent(this));
 	}
-	
+
 	@Override
 	public void onDisable()
 	{

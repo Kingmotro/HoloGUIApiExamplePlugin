@@ -44,7 +44,7 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	private ButtonComponent resetButton;
 
 	private BukkitRunnable stopWatch;
-	private Duration time;//the amount of time remaining on the stopwatch
+	private Duration time = Duration.ZERO;//the amount of time remaining on the stopwatch
 	
 	public StopwatchDataModel(HoloGUIPlugin plugin, GUIPage guiPage, final Player player)
 	{
@@ -122,7 +122,7 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 			@Override
 			public void run()
 			{
-				time.plusMillis(100);
+				time = time.plusMillis(100);
 			}
 		};
 
@@ -150,6 +150,8 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	 */
 	public String time()
 	{
-		return TimeFormat.getDurationFormatString(time) + ":" + ((time.toMillis() % time.getSeconds())/10);
+		if(time.isZero()) return TimeFormat.getDurationFormatString(Duration.ZERO);
+
+		return TimeFormat.getDurationFormatString(time) + " " + ((time.toMillis() % time.getSeconds() + 1)/10);
 	}
 }

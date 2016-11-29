@@ -1,12 +1,12 @@
-###  StopwatchDataModel class is bound to this gui page                                                        ###
-###  This means all public functions in the class are available to be called from this config file             ###
-###  If the function returns a value, then toString() will be called on that value and replaced in the string  ###
+### StopwatchDataModel class is bound to this gui page                                                       ###
+### This means all public functions in the class are available to be called from this config file            ###
+### If the function returns a value, then toString() will be called on that value and replaced in the string ###
 
 stopwatch:
   
-  ###Define the components that will exist on our example page###
+  ### Define the components that will exist on our example page ###
   components:
-  
+
     ###  Logo Image  ###
     logo:
       type: "image"
@@ -27,7 +27,7 @@ stopwatch:
       position:
         x: 0
         y: 0.8
-        
+
     ###  Time Label - Displays the current amount of time left on the stopwatch  ###
     time-label:
       type: "label"
@@ -41,33 +41,36 @@ stopwatch:
     ###  Start Stopwatch Button  ###
     start-btn:
       type: "button"
+      label: "&lStart"
       icon: "start-btn.png"
       mini: true
       symmetrical: true
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: 0
-        y: 0.2
-        
-   ### Stop Stopwatch Button ###
-   stop-btn:
-     type: "button"
-     icon: "stop-btn.png"
-     hidden: true # This component will be not rendered when the page loads. Only the start button will show on page load.
-     mini: true
-     symmetrical: true
-     onclick-sound: "UI_BUTTON_CLICK"
-     position:
-       x: 0
-       y: 0.2
+        x: -0.2
+        y: 0
+
+    ### Stop Stopwatch Button ###
+    stop-btn:
+      type: "button"
+      label: "&lStop"
+      icon: "stop-btn.png"
+      hidden: true # This component will be not rendered when the page loads. Only the start button will show on page load.
+      mini: true
+      symmetrical: true
+      onclick-sound: "UI_BUTTON_CLICK"
+      position:
+        x: -0.2
+        y: 0
 
     ### Reset Stopwatch Button ###
     reset-btn:
       type: "button"
+      label: "&lReset"
       icon: "reset-btn.png"
       mini: true
       symmetrical: true
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: 0
+        x: 0.3
         y: 0

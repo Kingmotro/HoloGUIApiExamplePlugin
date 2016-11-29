@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.antarescraft.kloudy.hologuiapi.plugincore.command.CommandHandler;
-import com.antarescraft.kloudy.plugincore.command.CommandParser;
+import com.antarescraft.kloudy.hologuiapi.plugincore.command.CommandParser;
 
 public class CommandEvent implements CommandExecutor
 {
