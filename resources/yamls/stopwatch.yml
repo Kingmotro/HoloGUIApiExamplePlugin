@@ -1,0 +1,63 @@
+###  StopwatchDataModel class is bound to this gui page                                                        ###
+###  This means all public functions in the class are available to be called from this config file             ###
+###  If the function returns a value, then toString() will be called on that value and replaced in the string  ###
+
+stopwatch:
+  
+  ###Define the components that will exist on our example page###
+  components:
+  
+    ###  Logo Image  ###
+    logo:
+      type: "image"
+      image-src: "hologuiapi-logo.png"
+      symmetrical: true
+      width: 60
+      height: 20
+      position:
+        x: 0
+        y: 1.2
+
+    ###  Plugin Title Label  ###
+    title:
+      type: "label"
+      label-distance: 8
+      text:
+        - "&&blHoloGUIApi Example Plugin"
+      position:
+        x: 0
+        y: 0.8
+        
+    ###  Time Label - Displays the current amount of time left on the stopwatch  ###
+    time-label:
+      type: "label"
+      label-distance: 6
+      text:
+        - "&l$model.time();" # Calls the 'time()' function in the StopWatchDataModel class which returns the amount of time left on the stopwatch
+      position:
+        x: 0
+        y: 0.4      
+
+    ###  Start Stopwatch Button  ###
+    start-btn:
+      type: "button"
+      icon: "start-btn.png"
+      mini: true
+      symmetrical: true
+      onclick: "$model.startStopwatch();" # Calls the 'startStopwatch()' function in the StopWatchDataModel which starts the stopwatch countdown
+      onclick-sound: "UI_BUTTON_CLICK"
+      position:
+        x: -0.2
+        y: 0.2
+        
+   ### Stop Stopwatch Button ###
+   stop-btn:
+     type: "button"
+     icon: "stop-btn.png"
+     mini: true
+     symmetrical: true
+     onclick: "$model.stopStopwatch();" # Calls the 'stopStopwatch()' function in the StopwatchDataModel which stops the stopwatch countdown
+     onclick-sound: "UI_BUTTON_CLICK"
+     position:
+       x: 0.3
+       y: 0.2

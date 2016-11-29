@@ -3,6 +3,7 @@ package com.antarescraft.kloudy.hologuiapi.exampleplugin;
 import com.antarescraft.kloudy.hologuiapi.HoloGUIPlugin;
 import com.antarescraft.kloudy.hologuiapi.exampleplugin.events.CommandEvent;
 
+
 public class ExamplePlugin extends HoloGUIPlugin
 {
 	@Override
