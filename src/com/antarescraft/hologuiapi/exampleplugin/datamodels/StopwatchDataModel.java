@@ -34,8 +34,6 @@ import com.antarescraft.kloudy.hologuiapi.scrollvalues.DurationScrollValue;
 public class StopwatchDataModel extends PlayerGUIPageModel
 {
 	//references to gui components in stopwatch.yml
-	private LabelComponent timeLabel;
-	private ValueScrollerComponent timeScroller;
 	private ButtonComponent startButton;
 	private ButtonComponent stopButton;
 	private ButtonComponent resetButton;
@@ -49,8 +47,6 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 		
 		//references to GUICoponents can be retrieved from the GUIPage object through the 'getComponent(String guiPageId)' method
 		//pass in the id of the component you want and cast it to the appropriate type
-		timeLabel = (LabelComponent)guiPage.getComponent("time-label");
-		timeScroller = (ValueScrollerComponent)guiPage.getComponent("time-scroller");
 		startButton = (ButtonComponent)guiPage.getComponent("start-btn");
 		stopButton = (ButtonComponent)guiPage.getComponent("stop-btn");
 		resetButton = (ButtonComponent)guiPage.getComponent("reset-btn");
@@ -67,18 +63,7 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 			}
 		});
 		
-		//# region Register event handlers for gui components
-		
-		//you can register a callback function to call when the player updates the scroll value on a ValueScrollerComponent
-		timeScroller.registerScrollHandler(player, new ScrollHandler()
-		{
-			@Override
-			public void onScroll(AbstractScrollValue<?, ?> value)
-			{
-				DurationScrollValue timeValue = (DurationScrollValue)value;
-				
-			}
-		});
+		//# region register click handlers for the ButtonComponents
 		
 		//you can register click handlers for ButtonComponents that will run when a player clicks the button
 		startButton.registerClickHandler(player, new ClickHandler()
