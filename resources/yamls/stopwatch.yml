@@ -44,20 +44,30 @@ stopwatch:
       icon: "start-btn.png"
       mini: true
       symmetrical: true
-      onclick: "$model.startStopwatch();" # Calls the 'startStopwatch()' function in the StopWatchDataModel which starts the stopwatch countdown
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: -0.2
+        x: 0
         y: 0.2
         
    ### Stop Stopwatch Button ###
    stop-btn:
      type: "button"
      icon: "stop-btn.png"
+     hidden: true # This component will be not rendered when the page loads. Only the start button will show on page load.
      mini: true
      symmetrical: true
-     onclick: "$model.stopStopwatch();" # Calls the 'stopStopwatch()' function in the StopwatchDataModel which stops the stopwatch countdown
      onclick-sound: "UI_BUTTON_CLICK"
      position:
-       x: 0.3
+       x: 0
        y: 0.2
+
+    ### Reset Stopwatch Button ###
+    reset-btn:
+      type: "button"
+      icon: "reset-btn.png"
+      mini: true
+      symmetrical: true
+      onclick-sound: "UI_BUTTON_CLICK"
+      position:
+        x: 0
+        y: 0

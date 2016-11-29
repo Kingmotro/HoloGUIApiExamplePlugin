@@ -1,5 +1,5 @@
 name: HoloGUIApiExamplePlugin
-main: com.antarescraft.kloudy.hologuiapi.exampleproject
+main: com.antarescraft.kloudy.hologuiapi.exampleproject.ExamplePlugin
 version: 1.0
 author: Kloudy
 website: www.antarescraft.com
@@ -8,4 +8,4 @@ depend: [HoloGUIApi]
 
 commands:
   example:
-    description: used to define commands for the Example plugin
+    description: used to define commands for the HoloGUIApiExample plugin

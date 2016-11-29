@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.antarescraft.kloudy.hologui</groupId>
+  <groupId>com.antarescraft.kloudy.hologuiapi.exampleplugin</groupId>
   <artifactId>HoloGUIApiExampleProject</artifactId>
   <version>1.0</version>
    <properties>
@@ -78,14 +78,18 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <finalName>StaffTimesheet</finalName>
+              <finalName>HoloGUIApiExamplePlugin</finalName>
               <relocations>
                 <relocation>
                   <pattern>com.antarescraft.kloudy.plugincore</pattern>
-                  <shadedPattern>com.antarescraft.kloudy.stafftimesheet.plugincore</shadedPattern>
+                  <shadedPattern>com.antarescraft.kloudy.hologuiapi.exampleplugin.plugincore</shadedPattern>
                 </relocation>
+                <reloation>
+                    <pattern>org.json</pattern>
+                    <shadedPattern>com.antarescraft.kloudy.hologuiapi.exampleplugin.plugincore.json</shadedPattern>
+                </reloation>
               </relocations>
-              <outputDirectory>C:\Users\timke\Dropbox\Spigot 1.11 Server\plugins</outputDirectory>
+              <outputDirectory>D:\Tim\Spigot 1.11 Server\plugins</outputDirectory>
             </configuration>
           </execution>
         </executions>

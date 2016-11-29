@@ -1,4 +1,4 @@
-package com.antarescraft.hologuiapi.exampleplugin.datamodels;
+package com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels;
 
 import java.time.Duration;
 
@@ -18,27 +18,32 @@ import com.antarescraft.kloudy.hologuiapi.playerguicomponents.PlayerGUIPageModel
 import com.antarescraft.kloudy.hologuiapi.plugincore.time.TimeFormat;
 import com.antarescraft.kloudy.hologuiapi.scrollvalues.AbstractScrollValue;
 import com.antarescraft.kloudy.hologuiapi.scrollvalues.DurationScrollValue;
+import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  * StopwatchDataModel class
  * 
  * This is the data model class that is bound to the stopwatch.yml gui page that is defined in resources/yamls/stopwatch.yml
  * All public methods of this class are available to be called from the stopwatch.yml config file
- * 
+ * Reference resources/yamls/stopwatch.yml to see how the GUIComponents used in this class were configured
+ *
  * Methods can be called from the config file by using syntax: $model.myFunctionName();
  * Example of this usage can be found in stopwatch.yml
  *
  * If the method returns a value, then that value will be replaced in the string in the config file
  * This allows you to display dynamic data in your gui pages
  */
+@SuppressWarnings("ALL")
 public class StopwatchDataModel extends PlayerGUIPageModel
 {
+	private PlayerGUIPage playerGUIPage;
+
 	//references to gui components in stopwatch.yml
 	private ButtonComponent startButton;
 	private ButtonComponent stopButton;
 	private ButtonComponent resetButton;
-	
-	private boolean isRunning = false;
+
+	private BukkitRunnable stopWatch;
 	private Duration time;//the amount of time remaining on the stopwatch
 	
 	public StopwatchDataModel(HoloGUIPlugin plugin, GUIPage guiPage, final Player player)
@@ -55,9 +60,11 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 		guiPage.registerPageLoadHandler(new GUIPageLoadHandler()
 		{
 			@Override
-			public void onPageLoad(PlayerGUIPage playerGUIPage)
+			public void onPageLoad(PlayerGUIPage _playerGUIPage)
 			{
 				//This code runs on page load
+
+				playerGUIPage = _playerGUIPage;
 			
 				player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1);
 			}
@@ -93,6 +100,8 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 			{
 				//when the player clicks the reset button, reset the stopwatch to the value contained in the time ValueScroller component
 				stop();
+
+				time = Duration.ZERO;
 			}
 		});
 		
@@ -104,7 +113,20 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	 */
 	private void start()
 	{
-		isRunning = true;
+		//The PlayerGUIPage object contains methods to render / remove components on a player's gui page
+		playerGUIPage.removeComponent("start-btn");//remove the start button
+		playerGUIPage.renderComponent(stopButton);//render the stop button
+
+		stopWatch = new BukkitRunnable()
+		{
+			@Override
+			public void run()
+			{
+				time.plusMillis(100);
+			}
+		};
+
+		stopWatch.runTaskTimer(plugin, 0, 2);
 	}
 	
 	/**
@@ -112,7 +134,15 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	 */
 	private void stop()
 	{
-		isRunning = false;
+		//The PlayerGUIPage object contains methods to render / remove components on a player's gui page
+		playerGUIPage.removeComponent("stop-btn");//remove the stop button
+		playerGUIPage.renderComponent(startButton);//render the start button
+
+		if(stopWatch != null)
+		{
+			stopWatch.cancel();
+			stopWatch = null;
+		}
 	}
 	
 	/**
@@ -120,6 +150,6 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	 */
 	public String time()
 	{
-		return TimeFormat.getDurationFormatString(time);
+		return TimeFormat.getDurationFormatString(time) + ":" + ((time.toMillis() % time.getSeconds())/10);
 	}
 }

@@ -1,11 +1,12 @@
 package com.antarescraft.kloudy.hologuiapi.exampleplugin.events;
 
+import com.antarescraft.kloudy.hologuiapi.exampleplugin.ExamplePlugin;
+import com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels.StopwatchDataModel;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.antarescraft.kloudy.hologuiapi.exampleplugin.ExamplePlugin;
 import com.antarescraft.kloudy.hologuiapi.plugincore.command.CommandHandler;
 import com.antarescraft.kloudy.plugincore.command.CommandParser;
 
@@ -21,7 +22,7 @@ public class CommandEvent implements CommandExecutor
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
 	{
-		return CommandParser.parseCommand(plugin, this, "example", command.getName(), sender, args);
+		return CommandParser.parseCommand(plugin, this, "stopwatch", command.getName(), sender, args);
 	}
 	
 	@CommandHandler(description = "Reloads GUI Pages from config",
@@ -32,12 +33,15 @@ public class CommandEvent implements CommandExecutor
 		plugin.loadGUIPages();//load the gui pages from config
 	}
 	
-	@CommandHandler(description = "Opens the specified gui page for the ExmaplePlugin", 
-			mustBePlayer = true, permission = "", subcommands = "open <gui_page_id>")
+	@CommandHandler(description = "Opens the stopwatch gui",
+			mustBePlayer = true, permission = "", subcommands = "open")
 	public void openGUIPage(CommandSender sender, String[] args)
 	{
 		Player player = (Player)sender;
-		
-		plugin.getHoloGUIApi().openGUIPage(plugin, player, args[1]);//open guipage with id retrieved from command argument
+
+		//create a new StopwatchDataModel and pass in the 'stopwatch' gui page
+		StopwatchDataModel stopwatchModel = new StopwatchDataModel(plugin, plugin.getGUIPage("stopwatch"), player);
+
+		plugin.getHoloGUIApi().openGUIPage(plugin, player, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage
 	}
 }

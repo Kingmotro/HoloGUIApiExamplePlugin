@@ -14,7 +14,7 @@ public class ExamplePlugin extends HoloGUIPlugin
 		getHoloGUIApi().hookHoloGUIPlugin(this);//hook the plugin into HoloGUIApi
 		loadGUIPages();//load the GUI Pages from cofig
 		
-		getCommand("example").setExecutor(new CommandEvent(this));
+		getCommand("stopwatch").setExecutor(new CommandEvent(this));
 	}
 	
 	@Override
