@@ -1,0 +1,7 @@
+[CENTER][SIZE=5]HoloGUIApi contains the core functionality that drives HoloGUI. This API makes it easy to create immersive and unique player experiences when interacting with your plugin.
+
+[IMG]https://proxy.spigotmc.org/fdb5ff822c2947780f9832ad0fc4f896ca102cb1?url=http%3A%2F%2Fi.imgur.com%2FW537C1e.gif[/IMG]
+
+Please reference this Example Project I made to show how the API is used.
+[/SIZE][/CENTER]
+[SIZE=5]Plugins using HoloGUIAPI;[/SIZE]
