@@ -37,7 +37,7 @@ stopwatch:
       height: 23
       position:
         x: 0
-        y: 0.9
+        y: 1
 
     ### Stopwatch Animated Image ###
     stopwatch-running:
@@ -49,7 +49,7 @@ stopwatch:
       height: 23
       position:
         x: 0
-        y: 0.9
+        y: 1
 
     ### Toggle Sounds On/Off  ###
     sound-toggle:
@@ -74,6 +74,7 @@ stopwatch:
       label-zoom-distance: 1.5
       always-show-label: true
       onclick-sound: "UI_BUTTON_CLICK"
+      onscroll-sound: "BLOCK_LAVA_POP"
       default-value:
         - "BLOCK_NOTE_BASEDRUM"
         - "BLOCK_NOTE_BASS"
@@ -91,16 +92,6 @@ stopwatch:
         x: -0.95
         y: 0.1
 
-    clock-outline:
-      type: "image"
-      image-src: "clock-outline.png"
-      symmetrical: true
-      width: 50
-      height: 20
-      position:
-        x: 0
-        y: 0.37
-
     ###  Time Label - Displays the current amount of time left on the stopwatch  ###
     time-label:
       type: "label"
@@ -109,7 +100,51 @@ stopwatch:
         - "&a&l$model.time();" # Calls the 'time()' function in the StopWatchDataModel class which returns the amount of time left on the stopwatch
       position:
         x: 0
+        y: -0.03
+
+    sword-item-1:
+      type: "item"
+      item-id: "DIAMOND_SWORD"
+      rotation:
+        x: -101
         y: 0
+        z: 0
+      position:
+        x: 0.04
+        y: -0.08
+
+    sword-item-2:
+      type: "item"
+      item-id: "DIAMOND_SWORD"
+      rotation:
+        x: 80
+        y: 0
+        z: 0
+      position:
+        x: 0.09
+        y: 0.17
+
+    sword-item-3:
+      type: "item"
+      item-id: "DIAMOND_SWORD"
+      rotation:
+        x: -101
+        y: 0
+        z: 0
+      position:
+        x: 0.04
+        y: 0.3
+
+    sword-item-4:
+      type: "item"
+      item-id: "DIAMOND_SWORD"
+      rotation:
+        x: 80
+        y: 0
+        z: 0
+      position:
+        x: 0.09
+        y: 0.52
 
     ###  Start Stopwatch Button  ###
     start-btn:
