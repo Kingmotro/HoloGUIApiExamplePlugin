@@ -7,6 +7,7 @@ stopwatch:
   ### Define the components that will exist on our example page ###
   components:
 
+    ### Close Button ###
     close-btn:
       type: "button"
       icon: "x-red.gif"
@@ -66,6 +67,7 @@ stopwatch:
         x: -0.95
         y: 0.6
 
+    ### Tick Sound Scroller ###
     tick-sound-scroller:
       type: "value-scroller"
       value-type: "list"
@@ -102,6 +104,7 @@ stopwatch:
         x: 0
         y: -0.03
 
+    ### Sword Items ###
     sword-item-1:
       type: "item"
       item-id: "DIAMOND_SWORD"
@@ -145,6 +148,7 @@ stopwatch:
       position:
         x: 0.09
         y: 0.52
+    ### END Sword Items ###
 
     ###  Start Stopwatch Button  ###
     start-btn:
