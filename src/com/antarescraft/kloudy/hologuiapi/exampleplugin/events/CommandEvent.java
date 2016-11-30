@@ -35,7 +35,7 @@ public class CommandEvent implements CommandExecutor
 	
 	@CommandHandler(description = "Opens the stopwatch gui",
 			mustBePlayer = true, permission = "", subcommands = "open")
-	public void openGUIPage(CommandSender sender, String[] args)
+	public void openStopwatch(CommandSender sender, String[] args)
 	{
 		Player player = (Player)sender;
 

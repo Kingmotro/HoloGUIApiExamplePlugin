@@ -7,35 +7,109 @@ stopwatch:
   ### Define the components that will exist on our example page ###
   components:
 
-    ###  Logo Image  ###
-    logo:
-      type: "image"
-      image-src: "hologuiapi-logo.png"
+    close-btn:
+      type: "button"
+      icon: "x-red.gif"
+      mini: true
       symmetrical: true
-      width: 60
-      height: 20
+      label: "&lClose"
+      onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: 0
-        y: 1.2
+        x: 0.8
+        y: 0.7
 
     ###  Plugin Title Label  ###
     title:
       type: "label"
-      label-distance: 5
+      label-distance: 4
       text:
-        - "&b&lHoloGUIApi Example Plugin"
+        - "%scroll%  &b&lHoloGUIApi Example Plugin &4&l(Stopwatch)  "
       position:
         x: 0
-        y: 0.8
+        y: 1
+
+    ###  Stopwatch Still Image  ###
+    stopwatch:
+      type: "image"
+      image-src: "stopwatch.gif"
+      symmetrical: true
+      width: 21
+      height: 23
+      position:
+        x: 0
+        y: 0.9
+
+    ### Stopwatch Animated Image ###
+    stopwatch-running:
+      type: "image"
+      image-src: "stopwatch-running.gif"
+      hidden: true  # This component will be not rendered when the page loads.
+      symmetrical: true
+      width: 21
+      height: 23
+      position:
+        x: 0
+        y: 0.9
+
+    ### Toggle Sounds On/Off  ###
+    sound-toggle:
+      type: "toggle-switch"
+      label: "&lTick Sound: %sound-toggle_value%"
+      label-distance: 8
+      label-zoom-distance: 2
+      always-show-label: true
+      value: true
+      on-value: "&a&lOn"
+      off-value: "&c&lOff"
+      onclick-sound: "UI_BUTTON_CLICK"
+      position:
+        x: -0.95
+        y: 0.6
+
+    tick-sound-scroller:
+      type: "value-scroller"
+      value-type: "list"
+      label: "&lTick Sound: &6&l%tick-sound-scroller_value%"
+      label-distance: 8
+      label-zoom-distance: 1.5
+      always-show-label: true
+      onclick-sound: "UI_BUTTON_CLICK"
+      default-value:
+        - "BLOCK_NOTE_BASEDRUM"
+        - "BLOCK_NOTE_BASS"
+        - "BLOCK_NOTE_HARP"
+        - "BLOCK_NOTE_HAT"
+        - "BLOCK_NOTE_PLING"
+        - "BLOCK_NOTE_SNARE"
+        - "BLOCK_LAVA_POP"
+        - "BLOCK_LEVER_CLICK"
+        - "ENTITY_COW_HURT"
+        - "ENTITY_CREEPER_PRIMED"
+        - "ENTITY_DONKEY_HURT"
+        - "ENTITY_DONKEY_DEATH"
+      position:
+        x: -0.95
+        y: 0.1
+
+    clock-outline:
+      type: "image"
+      image-src: "clock-outline.png"
+      symmetrical: true
+      width: 50
+      height: 20
+      position:
+        x: 0
+        y: 0.37
 
     ###  Time Label - Displays the current amount of time left on the stopwatch  ###
     time-label:
       type: "label"
+      label-distance: 3.75
       text:
-        - "&l$model.time();" # Calls the 'time()' function in the StopWatchDataModel class which returns the amount of time left on the stopwatch
+        - "&a&l$model.time();" # Calls the 'time()' function in the StopWatchDataModel class which returns the amount of time left on the stopwatch
       position:
         x: 0
-        y: 0.4      
+        y: 0
 
     ###  Start Stopwatch Button  ###
     start-btn:
@@ -46,8 +120,8 @@ stopwatch:
       symmetrical: true
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: -0.2
-        y: 0
+        x: -0.15
+        y: -0.2
 
     ### Stop Stopwatch Button ###
     stop-btn:
@@ -59,8 +133,8 @@ stopwatch:
       symmetrical: true
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: -0.2
-        y: 0
+        x: -0.15
+        y: -0.2
 
     ### Reset Stopwatch Button ###
     reset-btn:
@@ -71,5 +145,5 @@ stopwatch:
       symmetrical: true
       onclick-sound: "UI_BUTTON_CLICK"
       position:
-        x: 0.3
-        y: 0
+        x: 0.15
+        y: -0.2
