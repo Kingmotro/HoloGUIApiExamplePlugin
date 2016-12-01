@@ -1,15 +1,17 @@
-[CENTER][SIZE=5]HoloGUIApi contains the core functionality that drives HoloGUI. This API makes it easy to create immersive and unique player experiences when interacting with your plugin.
+[CENTER][SIZE=5]
+[IMG]http://i.imgur.com/W537C1e.gif[/IMG]
+HoloGUIApi contains the core functionality that drives HoloGUI. This API makes it easy to create immersive and unique player experiences when interacting with your plugin.[/SIZE]
 
-[IMG]https://proxy.spigotmc.org/fdb5ff822c2947780f9832ad0fc4f896ca102cb1?url=http%3A%2F%2Fi.imgur.com%2FW537C1e.gif[/IMG]
-[/SIZE]
+
+
 [SIZE=7][COLOR=#ff4d4d][B]Please reference HoloGUIApiExamplePlugin to show how the API is used.[/B][/COLOR][/SIZE]
-[SIZE=5][/SIZE][/CENTER]
+[/CENTER]
 [SIZE=5]Plugins using HoloGUIAPI:[/SIZE]
 [LIST]
 [*][SIZE=5]Example HoloGUIAPi Plugin (Stopwatch)[/SIZE]
 [*][SIZE=5]StaffTimesheet[/SIZE]
 [/LIST]
-[SIZE=6][/SIZE]
+
 [SIZE=7]Getting Started With HoloGUIApi...
 [/SIZE]
 [SIZE=6][U]Project Setup[/U]:
@@ -18,7 +20,7 @@ The Api will look for resources required to run your plugin in a folder called '
 See image for a more clear description of the required .jar filestructure[/SIZE]
 [CENTER][SIZE=6][IMG]http://i.imgur.com/ES0YpDM.png[/IMG] [/SIZE][/CENTER]
 [SIZE=6]
-I would also recommend opening the ExampleHoloGUIApiExamplePlugin with a program like WinRar to see how the resource file structure is laid out.
+I would also recommend opening the HoloGUIApiExamplePlugin with a program like WinRar to see how the resource file structure is laid out.
 
 For maven users paste this code into your pom.xml and maven will set up the resource file structure for the .jar:
 [SPOILER="Maven pom.xml resource file structure config"]
@@ -46,7 +48,7 @@ For maven users paste this code into your pom.xml and maven will set up the reso
       </resource>
     </resources>[/CODE]
 [/SPOILER][/SIZE]
-[SIZE=7][/SIZE]
+
 [U][SIZE=6]Your Plugin's Main Class:[/SIZE][/U]
 [SIZE=6]
 [CODE]public class ExamplePlugin extends HoloGUIPlugin //extend your plugin class with HoloGUIPlugin
