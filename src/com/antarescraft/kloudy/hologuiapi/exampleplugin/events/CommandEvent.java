@@ -1,7 +1,7 @@
 package com.antarescraft.kloudy.hologuiapi.exampleplugin.events;
 
 import com.antarescraft.kloudy.hologuiapi.exampleplugin.ExamplePlugin;
-import com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels.StopwatchDataModel;
+import com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels.StopwatchPageModel;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -39,8 +39,8 @@ public class CommandEvent implements CommandExecutor
 	{
 		Player player = (Player)sender;
 
-		//create a new StopwatchDataModel and pass in the 'stopwatch' gui page
-		StopwatchDataModel stopwatchModel = new StopwatchDataModel(plugin, plugin.getGUIPage("stopwatch"), player);
+		//create a new StopwatchPageModel and pass in the 'stopwatch' gui page
+		StopwatchPageModel stopwatchModel = new StopwatchPageModel(plugin, plugin.getGUIPage("stopwatch"), player);
 
 		plugin.getHoloGUIApi().openGUIPage(plugin, player, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage
 	}

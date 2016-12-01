@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.Calendar;
 
 /**
- * StopwatchDataModel class
+ * StopwatchPageModel class
  * 
  * This is the data model class that is bound to the stopwatch.yml gui page that is defined in resources/yamls/stopwatch.yml
  * All public methods of this class are available to be called from the stopwatch.yml config file
@@ -30,7 +30,7 @@ import java.util.Calendar;
  * This allows you to display dynamic data in your gui pages
  */
 
-public class StopwatchDataModel extends PlayerGUIPageModel
+public class StopwatchPageModel extends PlayerGUIPageModel // extend your data model class from PlayerGUIPageModel
 {
 	private PlayerGUIPage playerGUIPage;
 
@@ -47,7 +47,7 @@ public class StopwatchDataModel extends PlayerGUIPageModel
 	private BukkitRunnable stopWatch;
 	private Duration time = Duration.ZERO;//the amount of time remaining on the stopwatch
 	
-	public StopwatchDataModel(final HoloGUIPlugin plugin, GUIPage guiPage, final Player player)
+	public StopwatchPageModel(final HoloGUIPlugin plugin, GUIPage guiPage, final Player player)
 	{
 		super(plugin, guiPage, player);
 		
