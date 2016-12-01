@@ -1,18 +1,23 @@
-[CENTER][SIZE=5]HoloGUIApi contains the core functionality that drives HoloGUI. This API makes it easy to create immersive and unique player experiences when interacting with your plugin.
+[CENTER][SIZE=5]HoloGUIApi contains the core functionality that drives [URL='https://www.spigotmc.org/resources/hologui-1-8-x-1-11-50-off-holiday-sale.23451/']HoloGUI[/URL]. This API makes it easy to create immersive and unique player experiences when interacting with your plugin.
 
 [IMG]https://proxy.spigotmc.org/fdb5ff822c2947780f9832ad0fc4f896ca102cb1?url=http%3A%2F%2Fi.imgur.com%2FW537C1e.gif[/IMG]
 [/SIZE]
-[SIZE=7][COLOR=#ff4d4d][B]Please reference HoloGUIApiExamplePlugin to show how the API is used.[/B][/COLOR][/SIZE]
-[/CENTER]
-[SIZE=5]Plugins using HoloGUIAPI:[/SIZE]
-[LIST]
-[*][SIZE=5]Example HoloGUIAPi Plugin (Stopwatch)[/SIZE]
-[*][SIZE=5]StaffTimesheet[/SIZE]
-[/LIST]
+[SIZE=7][COLOR=#ff4d4d][B]Please reference HoloGUIApiExamplePlugin to see an example of how the API is used.[/B][/COLOR][/SIZE]
+[SIZE=6]
+Configuration documentation for GUI Pages can be found on the [URL='https://www.spigotmc.org/resources/hologui-1-8-x-1-11-50-off-holiday-sale.23451/']HoloGUI [/URL]plugin page.
 
+Plugins powered by HoloGUIAPI[/SIZE][/CENTER]
+[SIZE=5][/SIZE]
+[CENTER][SIZE=5]HoloGUI[/SIZE]
+[MEDIA=youtube]Dq-tcCSCXHY[/MEDIA]
+
+[SIZE=5]StaffTimesheet[/SIZE]
+[MEDIA=youtube]VVrCen1MYGI[/MEDIA]
+
+[/CENTER]
 [SIZE=7]Getting Started With HoloGUIApi...
 [/SIZE]
-[SIZE=6]Configuration documentation for GUI Pages can be found on the HoloGUI plugin page.[/SIZE]
+[SIZE=5][I]Before reaching out with questions, please checkout HoloGUIApiExamplePlugin. The full source code is available to download and view. The example plugin is heavily commented and was designed to highlight the most important features of the api. That being said, I'm happy to answer questions you may have that may not have been covered in detail in this documentation.[/I][/SIZE]
 
 [SIZE=6][U]Project Setup[/U]:
 The Api will look for resources required to run your plugin in a folder called 'resources' at the root level of the .jar file. The /resources directory contains two more directories 'images/' and 'yamls/' where images and yaml gui page config file are stored respectively.
@@ -50,8 +55,7 @@ For maven users paste this code into your pom.xml and maven will set up the reso
 [/SPOILER][/SIZE]
 
 [SIZE=7]Plugin Main Class[/SIZE]
-[SIZE=6]
-[CODE]public class ExamplePlugin extends HoloGUIPlugin //extend your plugin class with HoloGUIPlugin
+[SIZE=6][CODE]public class ExamplePlugin extends HoloGUIPlugin //extend your plugin class with HoloGUIPlugin
 {
     @Override
     public void onEnable()
@@ -71,10 +75,6 @@ For maven users paste this code into your pom.xml and maven will set up the reso
     }
 }[/CODE]
 [/SIZE]
-[SIZE=7]Opening a GUI Page...[/SIZE]
-
-[SIZE=6][CODE]plugin.getHoloGUIApi().openGUIPage(plugin, player, "my-gui-page"); //opens gui page for the specified player with id 'my-gui-page'[/CODE]
-[/SIZE]
 [SIZE=7]Opening a GUI Page and Binding a Page Model...[/SIZE]
 [SIZE=6]
 What is a page model?[/SIZE]
@@ -85,7 +85,7 @@ A page model class allows you to write java code to program how your gui will fu
 
 Page model classes do things like register click handlers for buttons, do some logic on page load, and hold on to the state of the gui page.
 
-Page Model Example:
+Page Model Example: (Taken from HoloGUIApiExamplePlugin)
 [SPOILER="Page Model Example:"][/SPOILER][/SIZE][SPOILER="Page Model Example:"]
 [CODE]package com.antarescraft.kloudy.hologuiapi.exampleplugin.datamodels;
 
@@ -287,7 +287,14 @@ public class StopwatchPageModel extends PlayerGUIPageModel // extend your data m
 
 [SIZE=7]Open the GUI Page and Bind the PageModel...
 [CODE]//create a new StopwatchPageModel and pass in the 'stopwatch' gui page
-        StopwatchPageModel stopwatchModel = new StopwatchPageModel(plugin, plugin.getGUIPage("stopwatch"), player);
+StopwatchPageModel stopwatchModel = new StopwatchPageModel(plugin, plugin.getGUIPage("stopwatch"), player);
 
-        plugin.getHoloGUIApi().openGUIPage(plugin, player, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage[/CODE]
+plugin.getHoloGUIApi().openGUIPage(plugin, player, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage[/CODE]
+
+Opening a GUI Page Without Binding a Page Model...
 [/SIZE]
+[SIZE=5]You don't have to bind a page model to a gui page in order to display the page to the player.[/SIZE]
+
+[SIZE=6][CODE]plugin.getHoloGUIApi().openGUIPage(plugin, player, "my-gui-page"); //opens gui page for the specified player with id 'my-gui-page'[/CODE][/SIZE]
+[SIZE=7]Closing a GUI Page...
+[CODE]plugin.getHoloGUIApi().closeGUIPage(player);//close the page[/CODE][/SIZE]
