@@ -7,8 +7,8 @@ import com.antarescraft.kloudy.hologuiapi.handlers.GUIPageLoadHandler;
 import com.antarescraft.kloudy.hologuiapi.playerguicomponents.PlayerGUIPage;
 import com.antarescraft.kloudy.hologuiapi.playerguicomponents.PlayerGUIPageModel;
 import com.antarescraft.kloudy.hologuiapi.plugincore.time.TimeFormat;
-
 import com.antarescraft.kloudy.hologuiapi.scrollvalues.ListScrollValue;
+
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -63,7 +63,7 @@ public class StopwatchPageModel extends PlayerGUIPageModel // extend your data m
 		tickSoundType = (ValueScrollerComponent)guiPage.getComponent("tick-sound-scroller");
 
 		//You can register a callback function to run when the guiPage is first loaded and displayed to the player
-		guiPage.registerPageLoadHandler(new GUIPageLoadHandler()
+		guiPage.registerPageLoadHandler(player, new GUIPageLoadHandler()
 		{
 			@Override
 			public void onPageLoad(PlayerGUIPage _playerGUIPage)

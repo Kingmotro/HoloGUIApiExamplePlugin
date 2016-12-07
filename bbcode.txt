@@ -25,7 +25,7 @@ The Api will look for resources required to run your plugin in a folder called '
 See image for a more clear description of the required .jar filestructure[/SIZE]
 [CENTER][SIZE=6][IMG]http://i.imgur.com/ES0YpDM.png[/IMG] [/SIZE][/CENTER]
 [SIZE=6]
-I would also recommend opening the ExampleHoloGUIApiExamplePlugin with a program like WinRar to see how the resource file structure is laid out.
+I would also recommend opening the HoloGUIApiExamplePlugin with a program like WinRar to see how the resource file structure is laid out.
 
 For maven users paste this code into your pom.xml and maven will set up the resource file structure for the .jar:
 [SPOILER="Maven pom.xml resource file structure config"]
