@@ -67,7 +67,7 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <outputFile>${plugin-folder}/StaffTimesheet.jar</outputFile>
+              <outputFile>${plugin-folder}/HoloGUIApiExamplePlugin.jar</outputFile>
             </configuration>
           </execution>
         </executions>
