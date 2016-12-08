@@ -3,4 +3,5 @@ target/
 .settings/
 .idea/
 .classpath
+.project
 HoloGUIApiExamplePlugin.iml
