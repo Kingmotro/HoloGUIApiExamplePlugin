@@ -9,7 +9,7 @@ public class ExamplePlugin extends HoloGUIPlugin
 	@Override
 	public void onEnable()
 	{
-		setMinSupportedApiVersion("1.0.8");
+		setMinSupportedApiVersion("1.0.9");
 		checkMinApiVersion();
 		
 		saveDefaultConfig();
