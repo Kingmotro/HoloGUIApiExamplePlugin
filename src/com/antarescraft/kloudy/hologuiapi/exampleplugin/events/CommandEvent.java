@@ -42,6 +42,6 @@ public class CommandEvent implements CommandExecutor
 		//create a new StopwatchPageModel and pass in the 'stopwatch' gui page
 		StopwatchPageModel stopwatchModel = new StopwatchPageModel(plugin, plugin.getGUIPage("stopwatch"), player);
 
-		plugin.getHoloGUIApi().openGUIPage(plugin, player, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage
+		plugin.getHoloGUIApi().openGUIPage(plugin, stopwatchModel);//opens the gui page and binds the dataModel to the guiPage
 	}
 }
